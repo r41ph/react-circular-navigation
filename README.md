@@ -6,14 +6,13 @@ Uses MaterialUI icons.
 ## Usage
 
 ```
-$ npm i react-circular-navigation
+$ npm i @r4lfl4b/react-circular-navigation
 ```
 
 ```jsx
 import React from "react";
 import ReactDOM from "react-dom";
-import { circularNavigation } from "react-circular-navigation";
-
+import CircularNavigation from "@r4lfl4b/react-circular-navigation";
 import HomeIcon from "@material-ui/icons/Home";
 import AnnouncementIcon from "@material-ui/icons/Announcement";
 import AssignmentIcon from "@material-ui/icons/Assignment";
@@ -42,7 +41,7 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.querySelector("#app"));
+export default App;
 ```
 
 ## Development
