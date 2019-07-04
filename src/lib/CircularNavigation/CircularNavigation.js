@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import "./CircularNavigation.scss";
+import './CircularNavigation.scss';
 import AddIcon from '@material-ui/icons/Add';
 const propTypes = {
   /**
@@ -27,45 +27,59 @@ const propTypes = {
   /**
    * Controls if the icons are visible
    */
-  showIcons: PropTypes.bool
-}
+  showIcons: PropTypes.bool,
+
+  /**
+   * Specifies whether the navigation
+   * sits on the left side of the screen
+   */
+  deployOnLeft: PropTypes.bool
+};
 
 const CircularNavigation = props => {
   const [navOpen, setNavOpen] = useState(false);
 
   const {
     overlay = false,
-    overlayColor = "#000",
+    overlayColor = '#000',
     showText = false,
     showIcons = true,
-    closeOnClickOverlay = false
+    closeOnClickOverlay = false,
+    deployOnLeft = false
   } = props;
 
   const overlayStyle = {
     backgroundColor: overlayColor,
-    display: "block"
-  }
+    display: 'block'
+  };
 
   const isNavOpen = cx({
-    "circular-nav-open": navOpen
-  })
+    'circular-nav-open': navOpen
+  });
 
   const menuClasses = cx('circular-nav-menu', {
-    "circular-nav-menu__show-text": showText,
-    "circular-nav-menu__show-icon": showIcons
-  })
+    'circular-nav-menu__show-text': showText,
+    'circular-nav-menu__show-icon': showIcons
+  });
+
+  const deployNavClass = cx(
+    `${deployOnLeft ? 'circular-nav-wrapper__deploy-left' : ''}`
+  );
 
   const toggle = () => setNavOpen(!navOpen);
 
   if (!props.children) {
     throw new Error(
-      `CircularNavigation component cannot be rendered without CircularNavigation.item component(s) as child(s)`,
-    )
+      `CircularNavigation component cannot be rendered without
+       CircularNavigation.item component(s) as child(s)`
+    );
   }
   return (
-    <nav className={`circular-nav-wrapper ${isNavOpen}`}>
+    <nav className={`circular-nav-wrapper ${isNavOpen} ${deployNavClass}`}>
       <div className="circular-nav-toggle" onClick={toggle}>
-        <span className="circular-nav-toggle__icon"><AddIcon /></span>
+        <span className="circular-nav-toggle__icon">
+          <AddIcon />
+        </span>
       </div>
       <div className="circular-nav-bg"></div>
       <ul className={`circular-nav-menu ${menuClasses}`}>
@@ -75,24 +89,28 @@ const CircularNavigation = props => {
           })
         )}
       </ul>
-      {overlay &&
+      {overlay && (
         <div
           style={navOpen ? overlayStyle : {}}
-          className='circular-nav-overlay'
-          onClick={closeOnClickOverlay ? toggle : undefined} >
-        </div>}
+          className="circular-nav-overlay"
+          onClick={closeOnClickOverlay ? toggle : undefined}
+        ></div>
+      )}
     </nav>
-  )
+  );
 };
 
 CircularNavigation.item = ({ index, href, icon, children }) => (
-  <li key={children} className={`circular-nav-item circular-nav-item-${index + 1}`}>
+  <li
+    key={children}
+    className={`circular-nav-item circular-nav-item-${index + 1}`}
+  >
     <a href={href} className="circular-nav-item__link">
       <span className="circular-nav-item__icon">{icon}</span>
       <span className="circular-nav-item__text">{children}</span>
     </a>
   </li>
-)
+);
 
 CircularNavigation.propTypes = propTypes;
 
