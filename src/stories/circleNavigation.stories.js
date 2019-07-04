@@ -15,28 +15,68 @@ storiesOf('CircularNavigation', module)
     info: {
       inline: true,
       source: true
-
-    },
+    }
   })
   .add('With overlay', () => (
     <div>
       <CircularNavigation overlay={true}>
-        <CircularNavigation.item href={'#'} icon={<HomeIcon />}>Home</CircularNavigation.item>
-        <CircularNavigation.item href={'#'} icon={<AnnouncementIcon />}>About</CircularNavigation.item>
-        <CircularNavigation.item href={'#'} icon={<AssignmentIcon />}>Projects</CircularNavigation.item>
-        <CircularNavigation.item href={'#'} icon={<BuildIcon />}>Labs</CircularNavigation.item>
-        <CircularNavigation.item href={'#'} icon={<EmailIcon />}>Contact</CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<HomeIcon />}>
+          Home
+        </CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<AnnouncementIcon />}>
+          About
+        </CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<AssignmentIcon />}>
+          Projects
+        </CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<BuildIcon />}>
+          Labs
+        </CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<EmailIcon />}>
+          Contact
+        </CircularNavigation.item>
       </CircularNavigation>
     </div>
   ))
   .add('No overlay', () => (
     <div>
       <CircularNavigation>
-        <CircularNavigation.item href={'#'} icon={<HomeIcon />}>Home</CircularNavigation.item>
-        <CircularNavigation.item href={'#'} icon={<AnnouncementIcon />}>About</CircularNavigation.item>
-        <CircularNavigation.item href={'#'} icon={<AssignmentIcon />}>Projects</CircularNavigation.item>
-        <CircularNavigation.item href={'#'} icon={<BuildIcon />}>Labs</CircularNavigation.item>
-        <CircularNavigation.item href={'#'} icon={<EmailIcon />}>Contact</CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<HomeIcon />}>
+          Home
+        </CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<AnnouncementIcon />}>
+          About
+        </CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<AssignmentIcon />}>
+          Projects
+        </CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<BuildIcon />}>
+          Labs
+        </CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<EmailIcon />}>
+          Contact
+        </CircularNavigation.item>
+      </CircularNavigation>
+    </div>
+  ))
+  .add('Deploy on the left', () => (
+    <div>
+      <CircularNavigation deployOnLeft overlay={true}>
+        <CircularNavigation.item href={'#'} icon={<HomeIcon />}>
+          Home
+        </CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<AnnouncementIcon />}>
+          About
+        </CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<AssignmentIcon />}>
+          Projects
+        </CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<BuildIcon />}>
+          Labs
+        </CircularNavigation.item>
+        <CircularNavigation.item href={'#'} icon={<EmailIcon />}>
+          Contact
+        </CircularNavigation.item>
       </CircularNavigation>
     </div>
   ));
